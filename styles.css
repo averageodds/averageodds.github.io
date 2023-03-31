@@ -1,6 +1,6 @@
 body {
     font-family: Poppins;
-    background-color: #222831;
+    background-color: #1F2833;
     color: #ffffff
   }
 
@@ -8,7 +8,7 @@ body {
     border-collapse: collapse;
     margin: 0 auto;
     width: 50%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
  th {

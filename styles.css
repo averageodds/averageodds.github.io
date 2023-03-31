@@ -8,7 +8,7 @@ body {
     border-collapse: collapse;
     margin: 0 auto;
     width: 50%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
  th {
@@ -42,7 +42,7 @@ input[type="number"] {
   p {
     font-weight: bold;
     text-align: center;
-    margin: 10px;
+    margin: 5px;
   }
   .currency {
     display: inline-block;

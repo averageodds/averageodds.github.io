@@ -13,69 +13,91 @@
     <table>
   <tr>
     <th>Bet</th>
-    <th>Bookmaker / Exchange</th>
-    <th>Stake</th>
-    <th>Odds</th>
+    <th class="min-width-column">Bookmaker / Exchange</th>
+    <th class="min-width-column">Stake</th>
+    <th class="min-width-column">Odds</th>
+    <th>Commission</th>
+    <th>Odds after Commission</th>
   </tr>
-<tr>
-  <td>1</td>
-  <td class="bookmaker"><input type="text"></td>
-  <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake1" oninput="calculate()" style="width: 80%;"></td>
-  <td class="odds-input"><input type="number" step="0.01" id="odds1" oninput="calculate()" style="width: 80%;"></td>
-</tr>
+  <tr>
+    <td>1</td>
+    <td class="bookmaker"><input type="text"></td>
+    <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake1" oninput="calculate()" style="width: 80%;"></td>
+    <td class="odds-input"><input type="number" step="0.01" id="odds1" oninput="calculate()" style="width: 80%;"></td>
+    <td class="commission-input"><input type="number" step="1" id="commission1" value="0" oninput="calculate()" style="width: 80%;"><span class="percentsign">%</span></td>
+    <td id="oddsWithComm1"></td>
+  </tr>
 <tr>
   <td>2</td>
   <td class="bookmaker"><input type="text"></td>
   <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake2" oninput="calculate()" style="width: 80%;"></td>
   <td class="odds-input"><input type="number" step="0.01" id="odds2" oninput="calculate()" style="width: 80%;"></td>
+  <td class="commission-input"><input type="number" step="1" id="commission2" value="0" oninput="calculate()" style="width: 80%;"><span class="percentsign">%</span></td>
+  <td id="oddsWithComm2"></td>
 </tr>
 <tr>
   <td>3</td>
   <td class="bookmaker"><input type="text"></td>
   <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake3" oninput="calculate()" style="width: 80%;"></td>
   <td class="odds-input"><input type="number" step="0.01" id="odds3" oninput="calculate()" style="width: 80%;"></td>
+  <td class="commission-input"><input type="number" step="1" id="commission3" value="0" oninput="calculate()" style="width: 80%;"><span class="percentsign">%</span></td>
+  <td id="oddsWithComm3"></td>
 </tr>
 <tr>
   <td>4</td>
   <td class="bookmaker"><input type="text"></td>
   <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake4" oninput="calculate()" style="width: 80%;"></td>
   <td class="odds-input"><input type="number" step="0.01" id="odds4" oninput="calculate()" style="width: 80%;"></td>
+  <td class="commission-input"><input type="number" step="1" id="commission4" value="0" oninput="calculate()" style="width: 80%;"><span class="percentsign">%</span></td>
+  <td id="oddsWithComm4"></td>
 </tr>
 <tr>
   <td>5</td>
   <td class="bookmaker"><input type="text"></td>
   <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake5" oninput="calculate()" style="width: 80%;"></td>
   <td class="odds-input"><input type="number" step="0.01" id="odds5" oninput="calculate()" style="width: 80%;"></td>
+  <td class="commission-input"><input type="number" step="1" id="commission5" value="0" oninput="calculate()" style="width: 80%;"><span class="percentsign">%</span></td>
+  <td id="oddsWithComm5"></td>
 </tr>
 <tr>
   <td>6</td>
   <td class="bookmaker"><input type="text"></td>
   <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake6" oninput="calculate()" style="width: 80%;"></td>
   <td class="odds-input"><input type="number" step="0.01" id="odds6" oninput="calculate()" style="width: 80%;"></td>
+  <td class="commission-input"><input type="number" step="1" id="commission6" value="0" oninput="calculate()" style="width: 80%;"><span class="percentsign">%</span></td>
+  <td id="oddsWithComm6"></td>
 </tr>
 <tr>
   <td>7</td>
   <td class="bookmaker"><input type="text"></td>
   <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake7" oninput="calculate()" style="width: 80%;"></td>
   <td class="odds-input"><input type="number" step="0.01" id="odds7" oninput="calculate()" style="width: 80%;"></td>
+  <td class="commission-input"><input type="number" step="1" id="commission7" value="0" oninput="calculate()" style="width: 80%;"><span class="percentsign">%</span></td>
+  <td id="oddsWithComm7"></td>
 </tr>
 <tr>
   <td>8</td>
   <td class="bookmaker"><input type="text"></td>
   <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake8" oninput="calculate()"></td>
   <td class="odds-input"><input type="number" step="0.01" id="odds8" oninput="calculate()"></td>
+  <td class="commission-input"><input type="number" step="1" id="commission8" value="0" oninput="calculate()" style="width: 80%;"><span class="percentsign">%</span></td>
+  <td id="oddsWithComm8"></td>
 </tr>
 <tr>
   <td>9</td>
   <td class="bookmaker"><input type="text"></td>
   <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake9" oninput="calculate()"></td>
   <td class="odds-input"><input type="number" step="0.01" id="odds9" oninput="calculate()"></td>
+  <td class="commission-input"><input type="number" step="1" id="commission9" value="0" oninput="calculate()" style="width: 80%;"><span class="percentsign">%</span></td>
+  <td id="oddsWithComm9"></td>
 </tr>
 <tr>
   <td>10</td>
   <td class="bookmaker"><input type="text"></td>
   <td class="stake-input"><span class="currency">£</span><input type="number" step="0.01" id="stake10" oninput="calculate()"></td>
   <td class="odds-input"><input type="number" step="0.01" id="odds10" oninput="calculate()"></td>
+  <td class="commission-input"><input type="number" step="1" id="commission10" value="0" oninput="calculate()" style="width: 80%;"><span class="percentsign">%</span></td>
+  <td id="oddsWithComm10"></td>
 </tr>
 </table>
 

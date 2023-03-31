@@ -1,17 +1,33 @@
+window.onload = function() {
+  reset();
+};
+
 function calculate() {
   let odds = [];
   let stakes = [];
+  let oddsWithComms = [];
 
   for (let i = 1; i <= 10; i++) {
     let oddsField = document.getElementById("odds" + i);
     let stakeField = document.getElementById("stake" + i);
+    let commissionField = document.getElementById("commission" + i);
 
     if (oddsField.value && stakeField.value) {
       let oddsValue = parseFloat(oddsField.value);
       let stakeValue = parseFloat(stakeField.value.replace(/[^\d.-]/g, ""));
+      let commissionValue = parseFloat(commissionField.value.replace(/[^\d.-]/g, ""));
+
       if (!isNaN(oddsValue) && !isNaN(stakeValue)) {
+        if (isNaN(commissionValue)) {
+          commissionValue = 0;
+        }
+
+        let commission = commissionValue / 100;
+        let oddsWithComm = oddsValue / (1 + commission);
+
         odds.push(oddsValue);
         stakes.push(stakeValue);
+        oddsWithComms.push(oddsWithComm);
       }
     }
   }
@@ -23,35 +39,24 @@ function calculate() {
   }
 
   let totalStake = stakes.reduce((a, b) => a + b, 0);
-  let stakeWeightedOdds = odds.map((o, i) => o * stakes[i]).reduce((a, b) => a + b, 0);
+  let stakeWeightedOdds = oddsWithComms.map((o, i) => o * stakes[i]).reduce((a, b) => a + b, 0);
   let averageOdds = stakeWeightedOdds / totalStake;
 
   document.getElementById("averageOdds").innerHTML = averageOdds.toFixed(2);
   document.getElementById("totalStake").innerHTML = "£" + totalStake.toLocaleString("en-GB", {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+  for (let i = 0; i < oddsWithComms.length; i++) {
+    document.getElementById("oddsWithComm" + (i+1)).innerHTML = oddsWithComms[i].toFixed(2);
+  }
 }
 
-  
-  function reset() {
-    document.getElementById("odds1").value = "";
-    document.getElementById("stake1").value = "";
-    document.getElementById("odds2").value = "";
-    document.getElementById("stake2").value = "";
-    document.getElementById("odds3").value = "";
-    document.getElementById("stake3").value = "";
-    document.getElementById("odds4").value = "";
-    document.getElementById("stake4").value = "";
-    document.getElementById("odds5").value = "";
-    document.getElementById("stake5").value = "";
-    document.getElementById("odds6").value = "";
-    document.getElementById("stake6").value = "";
-    document.getElementById("odds7").value = "";
-    document.getElementById("stake7").value = "";
-    document.getElementById("odds8").value = "";
-    document.getElementById("stake8").value = "";
-    document.getElementById("odds9").value = "";
-    document.getElementById("stake9").value = "";
-    document.getElementById("odds10").value = "";
-    document.getElementById("stake10").value = "";
-    document.getElementById("averageOdds").innerHTML = "0.00";
-    document.getElementById("totalStake").innerHTML = "£0.00";
+function reset() {
+  for (let i = 1; i <= 10; i++) {
+    document.getElementById("odds" + i).value = "";
+    document.getElementById("stake" + i).value = "";
+    document.getElementById("commission" + i).value = 0;
+    document.getElementById("oddsWithComm" + i).innerHTML = "0.00";
   }
+  document.getElementById("averageOdds").innerHTML = "0.00";
+  document.getElementById("totalStake").innerHTML = "£0.00";
+}

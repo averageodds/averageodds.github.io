@@ -43,7 +43,7 @@ function calculate() {
   let stakeWeightedOdds = oddsWithComms.map((o, i) => o * stakes[i]).reduce((a, b) => a + b, 0);
   let averageOdds = stakeWeightedOdds / totalStake;
 
-  document.getElementById("averageOdds").innerHTML = averageOdds.toFixed(2);
+  document.getElementById("averageOdds").innerHTML = averageOdds.toFixed(4);
   document.getElementById("totalStake").innerHTML = "£" + totalStake.toLocaleString("en-GB", {minimumFractionDigits: 2, maximumFractionDigits: 2});
 }
 

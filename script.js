@@ -22,7 +22,7 @@ function calculate() {
         }
 
         let commission = commissionValue / 100;
-        let oddsWithComm = oddsValue / (1 + commission);
+        let oddsWithComm = (oddsValue - 1) * (1 - commission) + 1;
 
         odds.push(oddsValue);
         stakes.push(stakeValue);
@@ -41,11 +41,13 @@ function calculate() {
 
   let totalStake = stakes.reduce((a, b) => a + b, 0);
   let stakeWeightedOdds = oddsWithComms.map((o, i) => o * stakes[i]).reduce((a, b) => a + b, 0);
-  let averageOdds = stakeWeightedOdds / totalStake;
+  let averageOdds = Number((stakeWeightedOdds / totalStake).toFixed(4));
+
 
   document.getElementById("averageOdds").innerHTML = averageOdds.toFixed(4);
   document.getElementById("totalStake").innerHTML = "£" + totalStake.toLocaleString("en-GB", {minimumFractionDigits: 2, maximumFractionDigits: 2});
 }
+
 
 
 
@@ -109,5 +111,3 @@ select.addEventListener('change', function() {
     }
   }
 });
-
-
